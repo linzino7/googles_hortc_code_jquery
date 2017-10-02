@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+     //Array 
+      var url="http://www.google.com/";
+        var token="your key";
+        var formData = { longUrl: url }; 
+        $.ajax({
+                        url : "https://www.googleapis.com/urlshortener/v1/url?key="+token,
+                        type: "POST",
+                        dataType: "json",
+                        data : JSON.stringify(formData),
+                        contentType: "application/json; charset=utf-8",
+                        success: function(data, status)
+                        {
+                            //document.write( JSON.stringify(data));
+                             $( "#a1" ).text( JSON.stringify(data.id) );
+                             console.log( JSON.stringify(data.id));
+                        }
+                });
+</script>
+</head>
+<body>
+    <p id='a1'>sssss</p>
+</body>
+</html>
+
+
